@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster">
+  <style>
+  .heds {
+    font-family: 'Lobster', cursive;
+  }
+    .heding{
+      font-weight: bold;
+      color: palevioletred;
+      font-family: 'Amatic SC', cursive;
+      font-size: 60px;
+    }
+    body{
+      background: linear-gradient(-45deg, #acf987, #789acf);
+      background-repeat: no-repeat;
+      text-align: center;
+    }
+    
+    footer{
+      background-color: black;
+      color: white;
+      margin-top: 20px;
+      text-align: center;
+      padding: 15px;
+    }
+    .digit{
+  height: 40px;
+  width: 40px;
+  border-radius: 20%;
+  padding: 5px;
+  border: 1px solid black;
+  margin-top: 20px;
+}
+.submit{
+  height: 30px;
+  width: 130px;
+  margin-top: 10px;
+  border-radius: 20px;
+   border: 1px solid black;
+}
+ h3 spam{
+  color: gold;
+  padding: 10px;
+}
+header{
+  height: 45px;
+  background: linear-gradient(to right, #ef1abc, #65fbac);
+} 
+
+    table{
+      margin-left: auto;
+      margin-right: auto;
+      height: 150px;
+      width: 150px;
+    }
+    td{
+      border: 1px solid gold;
+      padding: 5px;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-light" style="background: linear-gradient(-45deg, #a65efc, #96efba)">
+   <a class="navbar-brand" href="#"><h2 class = "heding">CalculatorDev</h2></a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+     <div class="navbar-nav">
+       <a class="nav-link active" href="/index.html">Home <span class="sr-only">(current)</span></a>
+       <a class="nav-link" href="./matrix.html">Matrix</a>
+       <a class="nav-link" href="./determinant.html">Determinant</a>
+     </div>
+   </div>
+ </nav>
+  </nav>
+  <header><h2 class = "heds">Multiplication of Matrices</h2></header>
+  <div>
+     <input type = "number" class = "digit" id = "a11" placeholder="a11">
+     <input type = "number" class = "digit" id = "a12"placeholder="a12">
+     <input type = "number" class = "digit" id = "a13" placeholder="a13"> <br>
+     <input type = "number" class = "digit" id = "a21"placeholder="a21">
+     <input type = "number" class = "digit" id = "a22" placeholder="a22">
+     <input type = "number" class = "digit" id = "a23" placeholder="a23"><br>
+     <input type = "number" class = "digit" id = "a31" placeholder="a31">
+     <input type = "number" class = "digit" id = "a32" placeholder="a32">
+     <input type = "number" class = "digit" id = "a33" placeholder="a33"><br>
+     <button class = "submit" type = "submit" onclick = "calculate()">Calculate</button>
+   </div>
+  
+   <h3>A^2 = </h3>
+   <table>
+     <tr><td><spam id="s11"></spam></td><td><spam id="s12"></spam></td><td><spam id="s13"></spam></td></tr>
+     <tr><td><spam id="s21"></spam></td><td><spam id="s22"></spam></td><td><spam id="s23"></spam></td></tr>
+     <tr><td><spam id="s31"></spam></td><td><spam id="s32"></spam></td><td><spam id="s33"></spam></td></tr>
+   </table>
+   <h3>A^3 = </h3>
+   <table>
+     <tr><td><spam id="p11"></spam></td><td><spam id="p12"></spam></td><td><spam id="p13"></spam></td></tr>
+     <tr><td><spam id="p21"></spam></td><td><spam id="p22"></spam></td><td><spam id="p23"></spam></td></tr>
+     <tr><td><spam id="p31"></spam></td><td><spam id="p32"></spam></td><td><spam id="p33"></spam></td></tr>
+   </table>
+  <footer>
+    No Copyright CalculatorDev 2023
+  </footer>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+</body>
+<script>
+  function calculate() {
+    //define element of determinants
+    let a11 = document.getElementById("a11").value;
+    let a12 = document.getElementById("a12").value;
+    let a13 = document.getElementById("a13").value;
+    let a21 = document.getElementById("a21").value;
+    let a22 = document.getElementById("a22").value;
+    let a23 = document.getElementById("a23").value;
+    let a31 = document.getElementById("a31").value;
+    let a32 = document.getElementById("a32").value;
+    let a33 = document.getElementById("a33").value;
+    //calculate A^2 
+    let m11 = a11 * a11 + a12 * a21 + a13 * a31;
+    let m12 = a11 * a12 + a12 * a22 + a13 * a32;
+    let m13 = a11 * a13 + a12 * a23 + a13 * a33;
+    let m21 = a21 * a11 + a22 * a21 + a23 * a31;
+    let m22 = a21 * a12 + a22 * a22 + a23 * a32;
+    let m23 = a21 * a13 + a22 * a23 + a23 * a33;
+    let m31 = a31 * a11 + a32 * a21 + a33 * a31;
+    let m32 = a31 * a12 + a32 * a22 + a33 * a32;
+    let m33 = a31 * a13 + a32 * a23 + a33 * a33;
+    //Display the results
+    document.getElementById("s11").innerText = m11;
+    document.getElementById("s12").innerText = m12;
+    document.getElementById("s13").innerText = m13;
+    document.getElementById("s21").innerText = m21;
+    document.getElementById("s22").innerText = m22;
+    document.getElementById("s23").innerText = m23;
+    document.getElementById("s31").innerText = m31;
+    document.getElementById("s32").innerText = m32;
+    document.getElementById("s33").innerText = m33;
+    //calculate A^3
+    let l11 = a11 * m11 + a12 * m21 + a13 * m31;
+    let l12 = a11 * m12 + a12 * m22 + a13 * m32;
+    let l13 = a11 * m13 + a12 * m23 + a13 * m33;
+    let l21 = a21 * m11 + a22 * m21 + a23 * m31;
+    let l22 = a21 * m12 + a22 * m22 + a23 * m32;
+    let l23 = a21 * m13 + a22 * m23 + a23 * m33;
+    let l31 = a31 * m11 + a32 * m21 + a33 * m31;
+    let l32 = a31 * m12 + a32 * m22 + a33 * m32;
+    let l33 = a31 * m13 + a32 * m23 + a33 * m33;
+    //Display the Results
+    document.getElementById("p11").innerText = l11;
+    document.getElementById("p12").innerText = l12;
+    document.getElementById("p13").innerText = l13;
+    document.getElementById("p21").innerText = l21;
+    document.getElementById("p22").innerText = l22;
+    document.getElementById("p23").innerText = l23;
+    document.getElementById("p31").innerText = l31;
+    document.getElementById("p32").innerText = l32;
+    document.getElementById("p33").innerText = l33;
+  }
+</script>
+</html>
