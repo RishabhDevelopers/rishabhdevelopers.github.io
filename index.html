@@ -1,147 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Determinant Calculator</title>
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster">
-<style>
-  body{
-  text-align: center;
-  background: linear-gradient(45deg, #cf265a, #12abfe);
-  background-repeat: no-repeat;
-}
-h2{
-  font-family: 'Lobster', cursive;
-  }
-
-.digit{
-  height: 40px;
-  width: 40px;
-  border-radius: 20%;
-  padding: 5px;
-  border: 1px solid black;
-}
-button{
-  height: 30px;
-  width: 130px;
-  margin-top: 10px;
-  border-radius: 20px;
-   border: 1px solid black;
-}
- h3 spam{
-  color: gold;
-  padding: 10px;
-}
-header{
-  height: 45px;
-  background: linear-gradient(to right, #ef1abc, #65fbac);
-}
-footer{
-  background: black;
-  color: white;
-  margin-top: 100px;
-}
-</style>
-  <link rel="stylesheet" href="style.css">
+  <title></title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <style>
+    .heding{
+      font-weight: bold;
+      color: palevioletred;
+      font-family: 'Amatic SC', cursive;
+      font-size: 60px;
+    }
+    body{
+      background: linear-gradient(-45deg, #acf987, #789acf);
+      background-repeat: no-repeat;
+      text-align: center;
+    }
+    .doo{
+      text-align: center;
+      font-family: 'Nunito', sans-serif;
+    }
+    .doo p {
+      font-family: 'Nunito', sans-serif;
+    }
+    .card{
+      margin-left: auto;
+      margin-right: auto;
+    }
+    footer{
+      background-color: black;
+      color: white;
+      margin-top: 20px;
+      text-align: center;
+      padding: 15px;
+    }
+  </style>
 </head>
 <body>
- <header><h2>Determinant Calculator</h2></header>
-   <h3>Order 3X3</h3>
-   <div>
-     <input type = "number" class = "digit" id = "a11" placeholder="a11">
-     <input type = "number" class = "digit" id = "a12"placeholder="a12">
-     <input type = "number" class = "digit" id = "a13" placeholder="a13"> <br>
-     <input type = "number" class = "digit" id = "a21"placeholder="a21">
-     <input type = "number" class = "digit" id = "a22" placeholder="a22">
-     <input type = "number" class = "digit" id = "a23" placeholder="a23"><br>
-     <input type = "number" class = "digit" id = "a31" placeholder="a31">
-     <input type = "number" class = "digit" id = "a32" placeholder="a32">
-     <input type = "number" class = "digit" id = "a33" placeholder="a33"><br>
-     <button type = "submit" onclick = "calculate()">Calculate</button>
-     <h4>The value determinant is <spam id = "result"></spam> </h4>
+  <nav class="navbar navbar-light" style="background: linear-gradient(-45deg, #a65efc, #96efba)">
+   <a class="navbar-brand" href="#"><h2 class = "heding">CalculatorDev</h2></a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+     <div class="navbar-nav">
+       <a class="nav-link active" href="/index.html">Home <span class="sr-only">(current)</span></a>
+       <a class="nav-link" href="./matrix.html">Matrix</a>
+       <a class="nav-link" href="./determinant.html">Determinant</a>
+     </div>
    </div>
-  <br> <br>
-  <h3>
-    adj(A) or A^T= <br>
-      |<spam id = "s11"></spam>
-      |<spam id = "s12"></spam>
-      |<spam id = "s13"></spam>|<br>
-      |<spam id = "s21"></spam>
-      |<spam id = "s22"></spam>
-      |<spam id = "s23"></spam>|<br>
-      |<spam id = "s31"></spam>
-      |<spam id = "s32"></spam>
-      |<spam id = "s33"></spam>|
-  </h3>
-<footer>
-  This web is coded by Rishabh Singh<br>
-  Message me on <a href = "https://www.t.me/rishabhdeveloper">Telegram</a>
-                            
-</footer>
-  <script src="main.js"></script>
-  <script>
-    function calculate() {
-      //define element of determinants
-      let a11 = document.getElementById("a11").value;
-      let a12 = document.getElementById("a12").value;
-      let a13 = document.getElementById("a13").value;
-      let a21 = document.getElementById("a21").value;
-      let a22 = document.getElementById("a22").value;
-      let a23 = document.getElementById("a23").value;
-      let a31 = document.getElementById("a31").value;
-      let a32 = document.getElementById("a32").value;
-      let a33 = document.getElementById("a33").value;
-      //define every brackets
-      let r11 = a22 * a33 - a32 * a23;
-      let r12 = a21 * a33 - a31 * a23;
-      let r13 = a21 * a32 - a31 * a22;
-      //multiply with a11, a12, a13
-      let c11 = a11 * r11;
-      let c12 = a12 * r12;
-      let c13 = a13 * r13;
-      //add them in determinants
-      let finalvalue = c11 - c12 + c13;
-      let result = document.getElementById("result");
-      result.innerText = finalvalue;
-      /*
-      Finding the adjA
-      */
-      //Before adj we have to find minor and then cofactor and then a^T
-      //this calculate minors
-      let m11 = a22 * a33 - a32 * a23;
-      let m12 = a21 * a33 - a31 * a23;
-      let m13 = a21 * a32 - a31 * a22;
-      let m21 = a12 * a33 - a13 * a32;
-      let m22 = a11 * a33 - a13 * a31;
-      let m23 = a11 * a32 - a12 * a31;
-      let m31 = a12 * a23 - a13 * a22;
-      let m32 = a11 * a23 - a21 * a13;
-      let m33 = a11 * a22 - a21 * a12;
-      //calculate cofactor
-      let f11 = m11;
-      let f12 = -m12;
-      let f13 = m13;
-      let f21 = -m21;
-      let f22 = m22;
-      let f23 = -m23;
-      let f31 = m31;
-      let f32 = -m32;
-      let f33 = m33;
-      //now change the row into column and column into row and display 
-      let s11 = document.getElementById("s11").innerText = f11;
-      let s12 = document.getElementById("s12").innerText = f21;
-      let s13 = document.getElementById("s13").innerText = f31;
-      let s21 = document.getElementById("s21").innerText = f12;
-      let s22 = document.getElementById("s22").innerText = f22;
-      let s23 = document.getElementById("s23").innerText = f32;
-      let s31 = document.getElementById("s31").innerText = f13;
-      let s32 = document.getElementById("s32").innerText = f23;
-      let s33 = document.getElementById("s33").innerText = f33;
+ </nav>
+  </nav>
+  <div class = "doo">
+    <h3>Calculator for Class 12th</h3>
+   <p>This calculator is made for those students who are studing in intermediate and wants to save time in calculation of matrices and determinants. This is also special for those teacher who also save time during lectures.</p>
+   
+   <div class="alert alert-danger" role="alert">
+   Do not use it in Exams
+   </div>
+   <div class="card" style="width: 16rem;">
+     <img src="/logo.png" class="card-img-top" alt="...">
+     <div class="card-body">
+       <h5 class="card-title">ꭈׁׅꪱׁׅ꯱ׁׅ֒hׁׅ֮ɑׁׅ֮ϐׁׅ֒hׁׅ֮ ꯱ׁׅ֒ꪱׁׅꪀׁׅᧁׁhׁׅ֮</h5>
+       <p class="card-text">Hi, I have created this website. I am studing in Class 12th in 2023-24. Coding is my Passion and I follow it.</p>
+       <a href="https://www.t.me/rishabhdeveloper" class="btn btn-primary">Message me on Telegram</a>
+     </div>
+   </div>
+  </div>
+  
+  <footer>
+    No Copyright CalculatorDev 2023
     
-    }
-  </script>
+  </footer>
+  
+  
+  
+  
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
 </body>
+
 </html>
